@@ -1,12 +1,12 @@
 {
-  "name": "cordova-plugin-plantilla",
+  "name": "arcore-it-plugin",
   "version": "1.0.0",
   "cordova": {
-    "id": "cordova-plugin-plantilla",
+    "id": "arcore-it-plugin",
     "platforms": [
       "android",
       "ios"
     ]
   },
-  "description": "Plantilla base para crear un Plugin personalizado"
+  "description": "Plugin para ARCore"
 }
