@@ -3,8 +3,8 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="arcore-it-plugin"
     version="1.0.0">
-    <name>Cordova ARCore Plugin from Impacto Tecnologico</name>
-    <description></description>
+    <name>Cordova ARCore Plugin of Impacto Tecnologico</name>
+    <description>Wrapper for ARCore</description>
     <license>MIT</license>
     <keywords></keywords>
     <repo>https://github.com/impactotecnologico/ionic-cordova-plugin-template.git</repo>
@@ -20,12 +20,12 @@
       </js-module>
       <config-file target="res/xml/config.xml" parent="/*">
         <feature name="ARCITPlugin">
-          <param name="android-package" value="net.impactotenologico.ionic.plugin.arcit.ARCITPlugin" />
+          <param name="android-package" value="net.impactotecnologico.ionic.plugin.arcit.ARCITPlugin" />
           <param name="onload" value="true" />
         </feature>
       </config-file>
 
-      <source-file src="src/android/net/impactotenologico/ionic/plugin/arcit/ARCITPlugin.java" target-dir="src/com/example/" />
+      <source-file src="src/android/net/impactotecnologico/ionic/plugin/arcit/ARCITPlugin.java" target-dir="src/android/net/impactotecnologico/ionic/plugin/arcit/" />
     </platform>
 
     <!-- ios -->
