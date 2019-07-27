@@ -1,6 +1,6 @@
 /**
  */
-package com.example;
+package net.impactotecnologico.ionic.plugin.arcit;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
