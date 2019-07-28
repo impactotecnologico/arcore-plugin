@@ -2,6 +2,9 @@
  */
 package net.impactotecnologico.ionic.plugin.arcit;
 
+import android.content.Context;
+import android.content.Intent;
+
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -34,6 +37,19 @@ public class ARCITPlugin extends CordovaPlugin {
       callbackContext.sendPluginResult(result);
     }
     return true;
+  }
+
+  private void openNewActivity(Context context, String action) {
+    Intent intent = new Intent(context, AugmentedActivity.class);
+
+    if (action.equals("bienvenida")) {
+    //  intent.putExtra(AugmentedActivity.ACCION, Acciones.BIENVENIDA);
+    }
+    if (action.equals("menu")) {
+    //  intent.putExtra(AugmentedActivity.ACCION, Acciones.MENU);
+    }
+    System.out.println("Entra en vista");
+    this.cordova.getActivity().startActivity(intent);
   }
 
 }

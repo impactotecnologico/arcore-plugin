@@ -18,6 +18,7 @@
         <!-- Este es el nombre por el cual se accedera el plugin -->
         <clobbers target="ARCITPlugin" />
       </js-module>
+      <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
       <config-file target="res/xml/config.xml" parent="/*">
         <feature name="ARCITPlugin">
           <param name="android-package" value="net.impactotecnologico.ionic.plugin.arcit.ARCITPlugin" />
