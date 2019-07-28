@@ -40,7 +40,8 @@ public class ARCITPlugin extends CordovaPlugin {
   }
 
   private void openNewActivity(Context context, String action) {
-    Intent intent = new Intent(context, AugmentedActivity.class);
+    // aqui va la clase que quiero abrir
+    Intent intent = new Intent(context, ARCITPlugin.class);
 
     if (action.equals("bienvenida")) {
     //  intent.putExtra(AugmentedActivity.ACCION, Acciones.BIENVENIDA);
