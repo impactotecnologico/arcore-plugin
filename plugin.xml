@@ -20,7 +20,7 @@
       -->
 
       <framework src="src/android/arit.gradle" custom="true" type="gradleReference" />
-      <js-module src="www/plugin.js" name="plugin">
+      <js-module src="www/plugin.js" name="ARCITPlugin">
         <runs/>
 
         <!-- Este es el nombre por el cual se accedera el plugin -->
