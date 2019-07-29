@@ -14,7 +14,7 @@
     <platform name="android">
 
       <framework src="src/android/arit.gradle" custom="true" type="gradleReference" />
-      <js-module src="www/plugin.js" name="plugin">
+      <js-module src="www/plugin.js" name="ARCITPlugin">
         <runs/>
 
         <!-- Este es el nombre por el cual se accedera el plugin -->
@@ -38,7 +38,8 @@
             <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
       </config-file>
 
-      <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+      <!-- edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" -->
+      <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application/">
         <activity
                 android:label="ImageRecognitionActivity"
                 android:name="net.impactotecnologico.ionic.plugin.arcit.ImageRecognitionActivity"
@@ -49,7 +50,8 @@
                 <action android:name="net.impactotecnologico.ionic.plugin.arcit.ImageRecognitionActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
         </activity>
-      </edit-config>
+      </config-file>  
+      <!-- /edit-config-->
 
       <!-- 
       <config-file target="AndroidManifest.xml" parent="/manifest/application">
