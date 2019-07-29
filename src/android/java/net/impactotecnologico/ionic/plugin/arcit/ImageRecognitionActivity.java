@@ -161,7 +161,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
 
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        firstTime = false;// There's a result, allow to exit the activity !
+        //firstTime = false;// There's a result, allow to exit the activity !
         
         // Do something with the result of the Intent data
  

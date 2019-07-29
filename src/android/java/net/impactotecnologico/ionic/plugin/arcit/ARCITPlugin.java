@@ -5,6 +5,7 @@ package net.impactotecnologico.ionic.plugin.arcit;
 import android.content.Context;
 import android.content.Intent;
 import android.app.Activity;
+import android.os.Bundle;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
