@@ -14,7 +14,7 @@
     <platform name="android">
 
       <framework src="src/android/arit.gradle" custom="true" type="gradleReference" />
-      <js-module src="www/plugin.js" name="plugin">
+      <js-module src="www/plugin.js" name="ARCITPlugin">
         <runs/>
 
         <!-- Este es el nombre por el cual se accedera el plugin -->
@@ -46,9 +46,10 @@
                 android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
                 android:screenOrientation="portrait"
                 android:configChanges="orientation|keyboardHidden" >
-
-                <action android:name="net.impactotecnologico.ionic.plugin.arcit.ImageRecognitionActivity" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <intent-filter>
+                  <action android:name="net.impactotecnologico.ionic.plugin.arcit.ImageRecognitionActivity" />
+                  <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
         </activity>
       </config-file>  
       <!-- /edit-config-->
