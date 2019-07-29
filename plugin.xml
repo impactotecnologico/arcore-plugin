@@ -26,7 +26,16 @@
         </feature>
       </config-file>
 
-      <source-file src="src/android/net/impactotecnologico/ionic/plugin/arcit/ARCITPlugin.java" target-dir="src/android/net/impactotecnologico/ionic/plugin/arcit/" />
+      <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-feature android:name="android.hardware.camera.autofocus" />
+            <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
+        </config-file>
+
+      <source-file src="src/android/java/net/impactotecnologico/ionic/plugin/arcit/ARCITPlugin.java" target-dir="src/android/net/impactotecnologico/ionic/plugin/arcit/" />
+      <source-file src="src/android/java/net/impactotecnologico/ionic/plugin/arcit/CustomArFragment.java" target-dir="src/android/net/impactotecnologico/ionic/plugin/arcit/" />
     </platform>
 
     <!-- ios -->

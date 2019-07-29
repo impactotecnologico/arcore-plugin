@@ -5,5 +5,5 @@ dependencies {
 
     // Alternatively, use ArSceneView without the UX dependency.
     //implementation "com.google.ar.sceneform:core:1.10.0"
-
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
 }
