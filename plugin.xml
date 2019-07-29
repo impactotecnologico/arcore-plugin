@@ -34,6 +34,8 @@
         </feature>
       </config-file>
 
+      <config-file parent="/app/src/main/" target="AndroidManifest.xml"></config-file>
+
       <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest">
             <uses-permission android:name="android.permission.CAMERA" />
             <uses-permission android:name="android.permission.INTERNET" />

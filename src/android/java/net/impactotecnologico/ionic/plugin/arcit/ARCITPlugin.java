@@ -53,7 +53,7 @@ public class ARCITPlugin extends CordovaPlugin {
     Log.d(TAG, "Entra en vista AR...");
 
     if (action.equals("bienvenida")) {
-        Intent intent = new Intent(this.context, ImageRecognitionActivity.class);
+        Intent intent = new Intent(this.context, net.impactotecnologico.ionic.plugin.arcit.ImageRecognitionActivity.class);
         //intent.putExtra(AugmentedActivity.ACCION, action);
         this.cordova.getActivity().startActivity(intent);
     }
