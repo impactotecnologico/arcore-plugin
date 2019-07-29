@@ -13,14 +13,8 @@
     <!-- android -->
     <platform name="android">
 
-      <!--
-      <framework src="com.google.ar.sceneform.ux:sceneform-ux:1.10.0" />
-      <framework src="com.android.support:appcompat-v7:28.0.0" />
-      <framework src="com.android.support.constraint:constraint-layout:1.1.0" />
-      -->
-
       <framework src="src/android/arit.gradle" custom="true" type="gradleReference" />
-      <js-module src="www/plugin.js" name="ARCITPlugin">
+      <js-module src="www/plugin.js" name="plugin">
         <runs/>
 
         <!-- Este es el nombre por el cual se accedera el plugin -->
