@@ -4,6 +4,7 @@ package net.impactotecnologico.ionic.plugin.arcit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.app.Activity;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -37,7 +38,7 @@ public class ARCITPlugin extends CordovaPlugin {
     if(action.equals("bienvenida")) {
       // An example of returning data back to the web layer
        String phrase = args.getString(0);
-       console.log("Obtenido de la web: ", args);
+       Log.d(TAG, "Obtenido de la web: " + phrase);
 
        this.openNewActivity(action);
       // Echo back the first argument      
@@ -49,17 +50,18 @@ public class ARCITPlugin extends CordovaPlugin {
 
   private void openNewActivity(String action) {
     
-    
+    Log.d(TAG, "Entra en vista AR...");
 
     if (action.equals("bienvenida")) {
         Intent intent = new Intent(this.context, ImageRecognitionActivity.class);
         //intent.putExtra(AugmentedActivity.ACCION, action);
+        this.cordova.getActivity().startActivity(intent);
     }
     if (action.equals("menu")) {
     //  intent.putExtra(AugmentedActivity.ACCION, Acciones.MENU);
     }
-    System.out.println("Entra en vista");
-    this.cordova.getActivity().startActivity(intent);
+    
+    
   }
 
 }
