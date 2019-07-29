@@ -21,6 +21,8 @@ import java.util.Date;
 
 public class ARCITPlugin extends CordovaPlugin {
   private static final String TAG = "ARCITPlugin";
+  private Activity activity;
+  private Context context;
 
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
@@ -29,22 +31,29 @@ public class ARCITPlugin extends CordovaPlugin {
   }
 
   public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+    this.context = cordova.getActivity().getApplicationContext();
+    this.activity = cordova.getActivity();
+
     if(action.equals("bienvenida")) {
       // An example of returning data back to the web layer
        String phrase = args.getString(0);
+       console.log("Obtenido de la web: ", args);
+
+       this.openNewActivity(action);
       // Echo back the first argument      
-      final PluginResult result = new PluginResult(PluginResult.Status.OK, "Hola todo el... "+phrase);
-      callbackContext.sendPluginResult(result);
+      //final PluginResult result = new PluginResult(PluginResult.Status.OK, "Hola todo el... "+phrase);
+      //callbackContext.sendPluginResult(result);
     }
     return true;
   }
 
-  private void openNewActivity(Context context, String action) {
-    // aqui va la clase que quiero abrir
-    Intent intent = new Intent(context, ARCITPlugin.class);
+  private void openNewActivity(String action) {
+    
+    
 
     if (action.equals("bienvenida")) {
-    //  intent.putExtra(AugmentedActivity.ACCION, Acciones.BIENVENIDA);
+        Intent intent = new Intent(this.context, ImageRecognitionActivity.class);
+        //intent.putExtra(AugmentedActivity.ACCION, action);
     }
     if (action.equals("menu")) {
     //  intent.putExtra(AugmentedActivity.ACCION, Acciones.MENU);
