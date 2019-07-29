@@ -64,11 +64,11 @@ public class ARCITPlugin extends CordovaPlugin {
         //this.cordova.getActivity().startActivity(intent);
 
 
-        Intent intent = new Intent("net.impactotecnologico.ionic.plugin.arcit.ImageRecognitionActivity");
+      Intent intent = new Intent("net.impactotecnologico.ionic.plugin.arcit.ImageRecognitionActivity");
 
-        // Now, cordova will expect for a result using startActivityForResult and will be handle by the onActivityResult.
-        cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
-        }
+      // Now, cordova will expect for a result using startActivityForResult and will be handle by the onActivityResult.
+      cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
+        
     }
     if (action.equals("menu")) {
     //  intent.putExtra(AugmentedActivity.ACCION, Acciones.MENU);
