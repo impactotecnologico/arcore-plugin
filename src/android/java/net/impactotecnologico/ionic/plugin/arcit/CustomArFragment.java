@@ -17,7 +17,7 @@ public class CustomArFragment extends ArFragment {
         getArSceneView().setupSession(session);
 
 
-        if ((((HelloSceneformActivity) getActivity()).setupAugmentedImagesDb(config, session))) {
+        if ((((ImageRecognitionActivity) getActivity()).setupAugmentedImagesDb(config, session))) {
             Log.d("SetupAugImgDb", "Success");
         } else {
             Log.e("SetupAugImgDb", "Faliure setting up db");
