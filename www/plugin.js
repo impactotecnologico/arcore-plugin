@@ -5,7 +5,8 @@ var PLUGIN_NAME = 'ARCITPlugin';
 
 var ARCITPlugin = {
   bienv: function (name, successCallback, errorCallback){
-        exec(successCallback, errorCallback, PLUGIN_NAME, "bienvenida", [name]);
+    console.log("A punto de ejecutar codigo nativo....");
+    exec(successCallback, errorCallback, PLUGIN_NAME, "bienvenida", [name]);
   }
 };
 
