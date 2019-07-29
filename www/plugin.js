@@ -20,7 +20,7 @@ function ARCITPlugin() {}
 ARCITPlugin.prototype.bienv = function(message, successCallback, errorCallback) {
   var options = {};
   options.message = message;
-  cordova.exec(successCallback, errorCallback, 'ARCITPlugin', 'show', [options]);
+  cordova.exec(successCallback, errorCallback, 'ARCITPlugin', 'bienvenida', [options]);
 }
 
 ARCITPlugin.install = function() {
