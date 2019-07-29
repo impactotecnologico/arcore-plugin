@@ -12,13 +12,17 @@
 
     <!-- android -->
     <platform name="android">
+
+      <framework src="com.google.ar.sceneform.ux:sceneform-ux:1.10.0" />
+      <framework src="com.android.support.constraint:constraint-layout:1.1.0" />
+
       <js-module src="www/plugin.js" name="plugin">
         <runs/>
 
         <!-- Este es el nombre por el cual se accedera el plugin -->
         <clobbers target="ARCITPlugin" />
       </js-module>
-      <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+      <!--framework src="src/android/build.gradle" custom="true" type="gradleReference" /-->
       <config-file target="res/xml/config.xml" parent="/*">
         <feature name="ARCITPlugin">
           <param name="android-package" value="net.impactotecnologico.ionic.plugin.arcit.ARCITPlugin" />
