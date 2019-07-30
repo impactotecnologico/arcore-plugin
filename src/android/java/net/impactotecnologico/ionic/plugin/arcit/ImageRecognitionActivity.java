@@ -76,12 +76,9 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         this.objRawId = getResources().getIdentifier("reloj", "raw", getPackageName());
     }
 
-
     @Override
-    //protected void onCreate(Bundle savedInstanceState) {
-    public void onStart() {
-        //super.onCreate(savedInstanceState);
-        super.onStart();
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
         if (!checkIsSupportedDeviceOrFinish(this)) {
             return;
@@ -90,8 +87,17 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         this.loadLocalResources();
 
         setContentView(this.layoutId);
-        arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
+        this.arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
 
+    }
+
+    @Override
+    //protected void onCreate(Bundle savedInstanceState) {
+    public void onStart() {
+        //super.onCreate(savedInstanceState);
+        super.onStart();
+
+        
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
 
 
