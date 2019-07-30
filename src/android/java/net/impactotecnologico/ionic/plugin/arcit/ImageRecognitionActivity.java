@@ -98,10 +98,10 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         super.onStart();
 
         
-        arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
+        //arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
 
 
-        /*ModelRenderable.builder()
+        ModelRenderable.builder()
                 .setSource(this, R.raw.reloj)
                 .build()
                 .thenAccept(renderable -> relojRenderable = renderable)
@@ -130,7 +130,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
                     reloj.setParent(anchorNode);
                     reloj.setRenderable(relojRenderable);
                     reloj.select();
-                });*/
+                });
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
