@@ -14,6 +14,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.Toast;
 
+import android.view.Gravity;
+import android.view.MotionEvent;
+import com.google.ar.core.HitResult;
+import com.google.ar.core.Plane;
+
 import com.google.ar.core.Anchor;
 import com.google.ar.core.AugmentedImage;
 import com.google.ar.core.AugmentedImageDatabase;
@@ -102,7 +107,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
 
 
         ModelRenderable.builder()
-                .setSource(this, R.raw.reloj)
+                .setSource(this, this.objRawId)
                 .build()
                 .thenAccept(renderable -> relojRenderable = renderable)
                 .exceptionally(
