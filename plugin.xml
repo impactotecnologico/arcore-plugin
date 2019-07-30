@@ -67,6 +67,7 @@
       <!-- carga de recursos -->
       <source-file src="src/android/res/layout/activity_ux.xml" target-dir="res/layout"/>
       <source-file src="src/android/res/raw/reloj.sfb" target-dir="res/raw"/>
+      <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
     </platform>
 
     <!-- ios -->
