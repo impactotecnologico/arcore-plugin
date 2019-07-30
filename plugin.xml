@@ -40,6 +40,7 @@
 
       <!-- edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" -->
       <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application/">
+        <meta-data android:name="com.google.ar.core" android:value="required" />
         <activity
                 android:label="ImageRecognitionActivity"
                 android:name="net.impactotecnologico.ionic.plugin.arcit.ImageRecognitionActivity"
