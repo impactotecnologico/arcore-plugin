@@ -2,6 +2,7 @@ package net.impactotecnologico.ionic.plugin.arcit;
 
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.content.res.AssetManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -47,38 +48,19 @@ public class ImageRecognitionActivity extends AppCompatActivity {
     private int layoutId;
     private int fragmentId;
     private int objRawId;
+    private int imgBienvId;
 
     private ArFragment arFragment;
     private ModelRenderable relojRenderable;
     boolean shouldAddModel = true;
 
-    public boolean setupAugmentedImagesDb(Config config, Session session) {
-        AugmentedImageDatabase augmentedImageDatabase;
-        Bitmap bitmap = loadAugmentedImage();
-        if (bitmap == null) {
-            return false;
-        }
-
-        augmentedImageDatabase = new AugmentedImageDatabase(session);
-        augmentedImageDatabase.addImage("bienvenida", bitmap);
-        config.setAugmentedImageDatabase(augmentedImageDatabase);
-        return true;
-    }
-
-    private Bitmap loadAugmentedImage() {
-
-        try (InputStream is = getAssets().open("bienvenida.jpg")) {
-            return BitmapFactory.decodeStream(is);
-        } catch (IOException e) {
-            Log.e("ImageLoad", "IO Exception", e);
-        }
-        return null;
-    }
+    
 
     private void loadLocalResources(){
         this.layoutId = getResources().getIdentifier("activity_ux", "layout", getPackageName());
         this.fragmentId = getResources().getIdentifier("custom_fragment", "id", getPackageName());
         this.objRawId = getResources().getIdentifier("reloj", "raw", getPackageName());
+        this.imgBienvId = getResources().getIdentifier("bienvenida", "assets", getPackageName());
     }
 
     @Override
@@ -97,9 +79,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
     }
 
     @Override
-    //protected void onCreate(Bundle savedInstanceState) {
     public void onStart() {
-        //super.onCreate(savedInstanceState);
         super.onStart();
 
         
@@ -151,6 +131,34 @@ public class ImageRecognitionActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public boolean setupAugmentedImagesDb(Config config, Session session) {
+        AugmentedImageDatabase augmentedImageDatabase;
+        Bitmap bitmap = loadAugmentedImage();
+        if (bitmap == null) {
+            return false;
+        }
+
+        augmentedImageDatabase = new AugmentedImageDatabase(session);
+        augmentedImageDatabase.addImage("bienvenida", bitmap);
+        config.setAugmentedImageDatabase(augmentedImageDatabase);
+        return true;
+    }
+
+    private Bitmap loadAugmentedImage() {
+
+        
+        return BitmapFactory.decodeResource(getResources(),this.imgBienvId);
+        
+        /*
+        try (InputStream is = getAssets().open("bienvenida.jpg")) {
+            return BitmapFactory.decodeStream(is);
+        } catch (IOException e) {
+            Log.e("ImageLoad", "IO Exception", e);
+        }
+        */
+        //return null;
     }
 
     private void placeObject(ArFragment arFragment, Anchor anchor, int obj) {
