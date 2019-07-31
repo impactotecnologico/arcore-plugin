@@ -92,7 +92,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         this.loadLocalResources();
 
         setContentView(this.layoutId);
-        this.arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
+        this.arFragment = (CustomArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
 
     }
 
@@ -103,9 +103,9 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         super.onStart();
 
         
-        //arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
+        arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
 
-
+        /*
         ModelRenderable.builder()
                 .setSource(this, this.objRawId)
                 .build()
@@ -136,6 +136,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
                     reloj.setRenderable(relojRenderable);
                     reloj.select();
                 });
+        */
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
