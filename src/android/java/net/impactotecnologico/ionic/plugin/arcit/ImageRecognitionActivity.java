@@ -60,7 +60,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         this.layoutId = getResources().getIdentifier("activity_ux", "layout", getPackageName());
         this.fragmentId = getResources().getIdentifier("custom_fragment", "id", getPackageName());
         this.objRawId = getResources().getIdentifier("reloj", "raw", getPackageName());
-        this.imgBienvId = getResources().getIdentifier("bienvenida", "assets", getPackageName());
+        this.imgBienvId = getResources().getIdentifier("bienvenida", "raw", getPackageName());
     }
 
     @Override
