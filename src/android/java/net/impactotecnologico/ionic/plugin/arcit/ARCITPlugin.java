@@ -22,7 +22,7 @@ import android.util.Log;
 import java.util.Date;
 
 public class ARCITPlugin extends CordovaPlugin {
-  private static final String TAG = "ARCITPlugin";
+  private static final String TAG = "ARCITPlugin-TAG";
   private Activity activity;
   private Context context;
   private CallbackContext PUBLIC_CALLBACKS = null;

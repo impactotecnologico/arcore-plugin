@@ -8,6 +8,8 @@ import com.google.ar.sceneform.ux.ArFragment;
 
 public class CustomArFragment extends ArFragment {
 
+    private static final String TAG = "ARCITPlugin-TAG";
+
     @Override
     protected Config getSessionConfiguration(Session session) {
         getPlaneDiscoveryController().setInstructionView(null);
@@ -18,9 +20,9 @@ public class CustomArFragment extends ArFragment {
 
 
         if ((((ImageRecognitionActivity) getActivity()).setupAugmentedImagesDb(config, session))) {
-            Log.d("SetupAugImgDb", "Success");
+            Log.d(TAG, "Imagen cargada en imagesDB");
         } else {
-            Log.e("SetupAugImgDb", "Faliure setting up db");
+            Log.e(TAG, "Faliure setting up db");
         }
 
 

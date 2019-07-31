@@ -42,7 +42,7 @@ import java.util.Collection;
  * This is an example activity that uses the Sceneform UX package to make common AR tasks easier.
  */
 public class ImageRecognitionActivity extends AppCompatActivity {
-    private static final String TAG = ImageRecognitionActivity.class.getSimpleName();
+    private static final String TAG = "ARCITPlugin-TAG";
     private static final double MIN_OPENGL_VERSION = 3.0;
 
     private int layoutId;
@@ -61,6 +61,8 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         this.fragmentId = getResources().getIdentifier("custom_fragment", "id", getPackageName());
         this.objRawId = getResources().getIdentifier("reloj", "raw", getPackageName());
         this.imgBienvId = getResources().getIdentifier("bienvenida", "raw", getPackageName());
+
+        Log.d(TAG, "Id Obtenido: " + this.imgBienvId);
     }
 
     @Override
@@ -76,11 +78,11 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         setContentView(this.layoutId);
         this.arFragment = (CustomArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
 
-    }
+    //}
 
-    @Override
-    public void onStart() {
-        super.onStart();
+    //@Override
+    //public void onStart() {
+    //    super.onStart();
 
         
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
@@ -149,7 +151,9 @@ public class ImageRecognitionActivity extends AppCompatActivity {
     private Bitmap loadAugmentedImage() {
 
         
-        return BitmapFactory.decodeResource(getResources(),this.imgBienvId);
+        Bitmap b = BitmapFactory.decodeResource(getResources(),this.imgBienvId);
+        Log.d(TAG, "Bitmap Obtenido: " + b);
+        return b;
         
         /*
         try (InputStream is = getAssets().open("bienvenida.jpg")) {
