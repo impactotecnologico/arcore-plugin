@@ -77,7 +77,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
 
         setContentView(this.layoutId);
         this.arFragment = (CustomArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
-
+        this.arFragment.getPlaneDiscoveryController().hide();
     //}
 
     //@Override
