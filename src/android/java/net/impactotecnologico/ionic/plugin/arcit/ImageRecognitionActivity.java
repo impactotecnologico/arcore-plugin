@@ -78,13 +78,17 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         setContentView(this.layoutId);
         this.arFragment = (CustomArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
 
-        Bundle extras = intent.getExtras();
+        Bundle extras = getIntent().getExtras();
 
-        String handExtra = extras.getString(ARCITPlugin.HIDE_HAND);
-        boolean hand = Boolean.valueOf(handExtra);
+        if (extras != null){
+            String handExtra = extras.getString(ARCITPlugin.HIDE_HAND);
+            boolean hand = Boolean.valueOf(handExtra);
 
-        if (handExtra) 
-            this.arFragment.getPlaneDiscoveryController().hide();   
+            if (hand) 
+                this.arFragment.getPlaneDiscoveryController().hide();  
+        }
+
+         
     //}
 
     //@Override
