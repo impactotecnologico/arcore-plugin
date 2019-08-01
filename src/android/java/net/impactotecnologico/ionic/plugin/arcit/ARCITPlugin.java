@@ -38,7 +38,6 @@ public class ARCITPlugin extends CordovaPlugin {
     this.context = cordova.getActivity().getApplicationContext();
     this.activity = cordova.getActivity();
     PUBLIC_CALLBACKS = callbackContext;
-    Boolean showOrHide = Boolean.valueOf(param);
    
     String param = args.getString(0);
     Boolean showOrHide = Boolean.valueOf(param);

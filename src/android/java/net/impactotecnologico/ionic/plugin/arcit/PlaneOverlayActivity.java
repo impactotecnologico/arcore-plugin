@@ -58,7 +58,7 @@ public class PlaneOverlayActivity extends AppCompatActivity {
         this.fragmentId = getResources().getIdentifier("plane_fragment", "id", getPackageName());
         this.objRawId = getResources().getIdentifier("reloj", "raw", getPackageName());
 
-        Log.d(TAG, "Id Obtenido: " + this.imgBienvId);
+        Log.d(TAG, "Id Obtenido: " + this.objRawId);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class PlaneOverlayActivity extends AppCompatActivity {
         this.loadLocalResources();
 
         setContentView(this.layoutId);
-        this.arFragment = getSupportFragmentManager().findFragmentById(this.fragmentId);
+        this.arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
 
         ModelRenderable.builder()
                 .setSource(this, this.objRawId)
