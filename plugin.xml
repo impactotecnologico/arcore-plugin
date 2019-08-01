@@ -38,7 +38,6 @@
             <uses-feature android:name="android.hardware.camera.ar" android:required="true"/>
       </config-file>
 
-      <!-- edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" -->
       <config-file target="app/src/main/AndroidManifest.xml" parent="/manifest/application/">
         <meta-data android:name="com.google.ar.core" android:value="required" />
         <activity
@@ -52,21 +51,28 @@
                   <category android:name="android.intent.category.DEFAULT" />
                 </intent-filter>
         </activity>
+        <activity
+                android:label="PlaneOverlayActivity"
+                android:name="net.impactotecnologico.ionic.plugin.arcit.PlaneOverlayActivity"
+                android:theme="@style/AppFullScreenTheme"
+                android:screenOrientation="portrait"
+                android:configChanges="orientation|keyboardHidden" >
+                <intent-filter>
+                  <action android:name="net.impactotecnologico.ionic.plugin.arcit.PlaneOverlayActivity" />
+                  <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+        </activity>
       </config-file>  
-      <!-- /edit-config-->
 
-      <!-- 
-      <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            
-      </config-file>
-      -->
 
       <!-- carga de clases -->
       <source-file src="src/android/java/net/impactotecnologico/ionic/plugin/arcit/ARCITPlugin.java" target-dir="src/android/net/impactotecnologico/ionic/plugin/arcit/" />
       <source-file src="src/android/java/net/impactotecnologico/ionic/plugin/arcit/ImageRecognitionActivity.java" target-dir="src/android/net/impactotecnologico/ionic/plugin/arcit/" />
+      <source-file src="src/android/java/net/impactotecnologico/ionic/plugin/arcit/PlaneOverlayActivity.java" target-dir="src/android/net/impactotecnologico/ionic/plugin/arcit/" />
       <source-file src="src/android/java/net/impactotecnologico/ionic/plugin/arcit/CustomArFragment.java" target-dir="src/android/net/impactotecnologico/ionic/plugin/arcit/" />
       <!-- carga de recursos -->
       <source-file src="src/android/res/layout/activity_ux.xml" target-dir="res/layout"/>
+      <source-file src="src/android/res/layout/activity_plane.xml" target-dir="res/layout"/>
       <source-file src="src/android/res/raw/reloj.sfb" target-dir="res/raw"/>
       <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
       <source-file src="src/android/res/raw/bienvenida.jpg" target-dir="res/raw"/>
