@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -17,6 +18,10 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.google.ar.core.ArCoreApk;
+import com.google.ar.core.ArCoreApk.InstallStatus;
+
 import android.util.Log;
 
 import java.util.Date;
@@ -27,6 +32,7 @@ public class ARCITPlugin extends CordovaPlugin {
   private Context context;
   private CallbackContext PUBLIC_CALLBACKS = null;
   public static String HIDE_HAND = "hideHand";
+  private boolean userRequestedInstall = true;
 
   public void initialize(CordovaInterface cordova, CordovaWebView webView) {
     super.initialize(cordova, webView);
@@ -42,12 +48,34 @@ public class ARCITPlugin extends CordovaPlugin {
     String param = args.getString(0);
     Boolean showOrHide = Boolean.valueOf(param);
 
-    this.openNewActivity(action, showOrHide);
+    validateARCoreInstallation();
+    if(userRequestedInstall){
+      this.openNewActivity(action, showOrHide);
 
-    final PluginResult pluginResult = new  PluginResult(PluginResult.Status.NO_RESULT);
-    pluginResult.setKeepCallback(true);
-      
-    return true;
+      final PluginResult pluginResult = new  PluginResult(PluginResult.Status.NO_RESULT);
+      pluginResult.setKeepCallback(true);
+        
+      return true;
+    }
+    return false;
+    
+  }
+
+  private void validateARCoreInstallation(){
+    try {
+      switch (ArCoreApk.getInstance().requestInstall(this, userRequestedInstall)) {
+        case INSTALLED:
+          // Success, create the AR session.
+          break;
+        case INSTALL_REQUESTED:
+          userRequestedInstall = false;
+      }
+
+    } catch (UnavailableUserDeclinedInstallationException e){
+      e.printStacktrace();
+      userRequestedInstall = false;
+      Toast.makeText(this.context, "Necesitas instalar la aplicación ARCore", Toast.LENGTH_LONG).show();
+    }
   }
 
   private void openNewActivity(String action, boolean showOrHide) {

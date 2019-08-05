@@ -84,52 +84,11 @@ public class ImageRecognitionActivity extends AppCompatActivity {
             String handExtra = extras.getString(ARCITPlugin.HIDE_HAND);
             boolean hand = Boolean.valueOf(handExtra);
 
-            if (hand) 
+            if (!hand) 
                 this.arFragment.getPlaneDiscoveryController().hide();  
         }
 
-         
-    //}
-
-    //@Override
-    //public void onStart() {
-    //    super.onStart();
-
-        
         arFragment.getArSceneView().getScene().addOnUpdateListener(this::onUpdateFrame);
-
-        /*
-        ModelRenderable.builder()
-                .setSource(this, this.objRawId)
-                .build()
-                .thenAccept(renderable -> relojRenderable = renderable)
-                .exceptionally(
-                        throwable -> {
-                            Toast toast =
-                                    Toast.makeText(this, "Unable to load reloj renderable", Toast.LENGTH_LONG);
-                            toast.setGravity(Gravity.CENTER, 0, 0);
-                            toast.show();
-                            return null;
-                        });
-
-        arFragment.setOnTapArPlaneListener(
-                (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
-                    if (relojRenderable == null) {
-                        return;
-                    }
-
-                    // Create the Anchor.
-                    Anchor anchor = hitResult.createAnchor();
-                    AnchorNode anchorNode = new AnchorNode(anchor);
-                    anchorNode.setParent(arFragment.getArSceneView().getScene());
-
-                    // Create the transformable andy and add it to the anchor.
-                    TransformableNode reloj = new TransformableNode(arFragment.getTransformationSystem());
-                    reloj.setParent(anchorNode);
-                    reloj.setRenderable(relojRenderable);
-                    reloj.select();
-                });
-        */
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -147,33 +106,26 @@ public class ImageRecognitionActivity extends AppCompatActivity {
     }
 
     public boolean setupAugmentedImagesDb(Config config, Session session) {
-        AugmentedImageDatabase augmentedImageDatabase;
-        Bitmap bitmap = loadAugmentedImage();
-        if (bitmap == null) {
-            return false;
-        }
+        AugmentedImageDatabase augmentedImageDatabase = new AugmentedImageDatabase(session);
 
-        augmentedImageDatabase = new AugmentedImageDatabase(session);
-        augmentedImageDatabase.addImage("bienvenida", bitmap);
-        config.setAugmentedImageDatabase(augmentedImageDatabase);
-        return true;
+        if (augmentedImageDatabase.getNumImages() == 0) {
+            Bitmap bitmap = loadAugmentedImage();
+            if (bitmap == null) {
+                return false;
+            }
+
+            augmentedImageDatabase.addImage("bienvenida", bitmap);
+            config.setAugmentedImageDatabase(augmentedImageDatabase);
+            return true;
+        } else {
+            return true;
+        }
     }
 
-    private Bitmap loadAugmentedImage() {
-
-        
+    private Bitmap loadAugmentedImage() {        
         Bitmap b = BitmapFactory.decodeResource(getResources(),this.imgBienvId);
         Log.d(TAG, "Bitmap Obtenido: " + b);
         return b;
-        
-        /*
-        try (InputStream is = getAssets().open("bienvenida.jpg")) {
-            return BitmapFactory.decodeStream(is);
-        } catch (IOException e) {
-            Log.e("ImageLoad", "IO Exception", e);
-        }
-        */
-        //return null;
     }
 
     private void placeObject(ArFragment arFragment, Anchor anchor, int obj) {
