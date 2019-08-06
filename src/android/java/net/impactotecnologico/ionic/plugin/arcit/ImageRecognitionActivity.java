@@ -109,7 +109,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         AugmentedImageDatabase augmentedImageDatabase = new AugmentedImageDatabase(session);
 
         int images = augmentedImageDatabase.getNumImages();
-        Log.d(TAG, "Imagenes en DB: " + images );
+        Log.d(TAG, "Imagenes en DB: " + config.getAugmentedImageDatabase() );
 
         if (images == 0) {
             Bitmap bitmap = loadAugmentedImage();
@@ -154,11 +154,7 @@ public class ImageRecognitionActivity extends AppCompatActivity {
 
     @Override
     public void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        //firstTime = false;// There's a result, allow to exit the activity !
-        
-        // Do something with the result of the Intent data
- 
-        // Send parameters to retrieve in cordova.
+
         Intent intent = new Intent();
         intent.putExtra("data", "This is the sent information from the 2 activity :) ");
         setResult(Activity.RESULT_OK, intent);
