@@ -86,6 +86,9 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
         // Create a renderable with a material that has a parameter of type 'samplerExternal' so that
         // it can display an ExternalTexture. The material also has an implementation of a chroma key
         // filter.
+
+        try {
+
         ModelRenderable.builder()
                 .setSource(this, this.objRawId)
                 .build()
@@ -103,6 +106,9 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
                             toast.show();
                             return null;
                         });
+
+        
+
 
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
@@ -149,6 +155,11 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
                         videoNode.setRenderable(videoRenderable);
                     }
                 });
+
+
+         } catch (Exception e){
+            e.printStackTrace();
+        }       
     }
 
     @Override

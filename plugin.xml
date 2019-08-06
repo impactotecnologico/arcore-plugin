@@ -88,8 +88,8 @@
       <source-file src="src/android/res/layout/activity_plane.xml" target-dir="res/layout"/>
       <source-file src="src/android/res/raw/reloj.sfb" target-dir="res/raw"/>
       <source-file src="src/android/res/raw/chroma.mp4" target-dir="res/raw"/>
-      <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
       <source-file src="src/android/res/raw/bienvenida.jpg" target-dir="res/raw"/>
+      <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
     </platform>
 
     <!-- ios -->
