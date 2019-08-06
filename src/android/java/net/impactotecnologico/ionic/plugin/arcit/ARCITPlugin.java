@@ -97,6 +97,13 @@ public class ARCITPlugin extends CordovaPlugin {
       // Now, cordova will expect for a result using startActivityForResult and will be handle by the onActivityResult.
       cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
     }
+
+    if (action.equals("chroma")) {
+      Intent intent = new Intent("net.impactotecnologico.ionic.plugin.arcit.ChromaKeyVideoActivity");
+      intent.putExtra(HIDE_HAND, showOrHide);
+      // Now, cordova will expect for a result using startActivityForResult and will be handle by the onActivityResult.
+      cordova.startActivityForResult((CordovaPlugin) this, intent, 0);
+    }
     
     
   }
