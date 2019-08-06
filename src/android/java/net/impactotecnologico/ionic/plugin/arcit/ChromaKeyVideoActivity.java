@@ -94,6 +94,7 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
                 .build()
                 .thenAccept(
                         renderable -> {
+                            Log.e(TAG, "Antes del seteo");
                             videoRenderable = renderable;
                             renderable.getMaterial().setExternalTexture("videoTexture", texture);
                             renderable.getMaterial().setFloat4("keyColor", CHROMA_KEY_COLOR);
@@ -108,7 +109,7 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
                         });
 
         
-
+        Log.e(TAG, "Despues del builder");
 
         arFragment.setOnTapArPlaneListener(
                 (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
