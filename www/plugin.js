@@ -29,6 +29,12 @@ ARCITPlugin.prototype.plano = function(message, successCallback, errorCallback) 
   cordova.exec(successCallback, errorCallback, 'ARCITPlugin', 'plano', [options]);
 }
 
+ARCITPlugin.prototype.chroma = function(message, successCallback, errorCallback) {
+  var options = {};
+  options.message = message;
+  cordova.exec(successCallback, errorCallback, 'ARCITPlugin', 'chroma', [options]);
+}
+
 ARCITPlugin.install = function() {
   if (!window.plugins) {
     window.plugins = {};

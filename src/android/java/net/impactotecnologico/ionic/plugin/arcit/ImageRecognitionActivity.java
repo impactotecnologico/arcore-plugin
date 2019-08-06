@@ -109,7 +109,6 @@ public class ImageRecognitionActivity extends AppCompatActivity {
         AugmentedImageDatabase augmentedImageDatabase = new AugmentedImageDatabase(session);
 
         int images = augmentedImageDatabase.getNumImages();
-        Log.d(TAG, "Imagenes en DB: " + config.getAugmentedImageDatabase() );
 
         if (images == 0) {
             Bitmap bitmap = loadAugmentedImage();
@@ -119,8 +118,6 @@ public class ImageRecognitionActivity extends AppCompatActivity {
 
             augmentedImageDatabase.addImage("bienvenida", bitmap);
             config.setAugmentedImageDatabase(augmentedImageDatabase);
-
-            Log.d(TAG, "Imagenes en DBxxx: " + images );
 
             return true;
         } else {
