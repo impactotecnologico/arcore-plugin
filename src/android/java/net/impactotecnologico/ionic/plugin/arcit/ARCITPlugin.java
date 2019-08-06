@@ -63,16 +63,16 @@ public class ARCITPlugin extends CordovaPlugin {
 
   private void validateARCoreInstallation(){
     try {
-      switch (ArCoreApk.getInstance().requestInstall(this, userRequestedInstall)) {
-        case INSTALLED:
+      switch (ArCoreApk.getInstance().requestInstall(this.activity, userRequestedInstall)) {
+        case InstallStatus.INSTALLED:
           // Success, create the AR session.
           break;
-        case INSTALL_REQUESTED:
+        case InstallStatus.INSTALL_REQUESTED:
           userRequestedInstall = false;
       }
 
     } catch (UnavailableUserDeclinedInstallationException e){
-      e.printStacktrace();
+      e.printStackTrace();
       userRequestedInstall = false;
       Toast.makeText(this.context, "Necesitas instalar la aplicación ARCore", Toast.LENGTH_LONG).show();
     }
