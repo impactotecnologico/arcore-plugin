@@ -56,17 +56,11 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.e(TAG, "Antes de verificacion");
-
         if (!checkIsSupportedDeviceOrFinish(this)) {
             return;
         }
 
-        Log.e(TAG, "Antes de cargar");
-
         this.loadLocalResources();
-
-        Log.e(TAG, "Cargados!!!!!!!!!!!!");
 
         setContentView(this.layoutId);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
@@ -74,14 +68,12 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
         // Create an ExternalTexture for displaying the contents of the video.
         ExternalTexture texture = new ExternalTexture();
 
-        Log.e(TAG, "Antes del media player");
-
         // Create an Android MediaPlayer to capture the video on the external texture's surface.
         mediaPlayer = MediaPlayer.create(this, this.objRawId);
         mediaPlayer.setSurface(texture.getSurface());
         mediaPlayer.setLooping(true);
 
-        Log.e(TAG, "Despues del media player");
+        Log.e(TAG, "Antes del builder");
 
         // Create a renderable with a material that has a parameter of type 'samplerExternal' so that
         // it can display an ExternalTexture. The material also has an implementation of a chroma key
@@ -94,7 +86,7 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
                 .build()
                 .thenAccept(
                         renderable -> {
-                            Log.e(TAG, "Antes del seteo");
+                            Log.e(TAG, "Antes del setExternalTexture");
                             videoRenderable = renderable;
                             renderable.getMaterial().setExternalTexture("videoTexture", texture);
                             renderable.getMaterial().setFloat4("keyColor", CHROMA_KEY_COLOR);
@@ -158,7 +150,7 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
                 });
 
 
-         } catch (Exception e){
+         } catch (Throwable e){
             e.printStackTrace();
         }       
     }
