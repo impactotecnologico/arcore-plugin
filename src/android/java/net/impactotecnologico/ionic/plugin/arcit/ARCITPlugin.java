@@ -19,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import com.google.ar.core.exceptions.UnavailableDeviceNotCompatibleException;
 import com.google.ar.core.ArCoreApk;
 import com.google.ar.core.ArCoreApk.InstallStatus;
 
