@@ -81,6 +81,8 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
         mediaPlayer.setSurface(texture.getSurface());
         mediaPlayer.setLooping(true);
 
+        Log.e(TAG, "Despues del media player");
+
         // Create a renderable with a material that has a parameter of type 'samplerExternal' so that
         // it can display an ExternalTexture. The material also has an implementation of a chroma key
         // filter.
