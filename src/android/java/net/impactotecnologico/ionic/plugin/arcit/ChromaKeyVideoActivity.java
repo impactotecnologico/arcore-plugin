@@ -56,17 +56,25 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Log.e(TAG, "Antes de verificacion");
+
         if (!checkIsSupportedDeviceOrFinish(this)) {
             return;
         }
 
+        Log.e(TAG, "Antes de cargar");
+
         this.loadLocalResources();
+
+        Log.e(TAG, "Cargados!!!!!!!!!!!!");
 
         setContentView(this.layoutId);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
 
         // Create an ExternalTexture for displaying the contents of the video.
         ExternalTexture texture = new ExternalTexture();
+
+        Log.e(TAG, "Antes del media player");
 
         // Create an Android MediaPlayer to capture the video on the external texture's surface.
         mediaPlayer = MediaPlayer.create(this, this.objRawId);
@@ -109,6 +117,8 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
                     Node videoNode = new Node();
                     videoNode.setParent(anchorNode);
 
+                    Log.e(TAG, "Antes del escalado");
+
                     // Set the scale of the node so that the aspect ratio of the video is correct.
                     float videoWidth = mediaPlayer.getVideoWidth();
                     float videoHeight = mediaPlayer.getVideoHeight();
@@ -117,6 +127,9 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
                                     VIDEO_HEIGHT_METERS * (videoWidth / videoHeight), VIDEO_HEIGHT_METERS, 1.0f));
 
                     // Start playing the video when the first node is placed.
+
+                    Log.e(TAG, "Antes de darle Play");
+
                     if (!mediaPlayer.isPlaying()) {
                         mediaPlayer.start();
 

@@ -81,7 +81,7 @@ public class ARCITPlugin extends CordovaPlugin {
 
   private void openNewActivity(String action, boolean showOrHide) {
     
-    Log.d(TAG, "Entra en vista AR...");
+    Log.d(TAG, "Entra en vista AR... para " + action);
 
     if (action.equals("bienvenida")) {
 
