@@ -62,7 +62,7 @@ public class ChromaKeyVideoActivity extends AppCompatActivity {
 
         this.loadLocalResources();
 
-        setContentView(R.layout.activity_video);
+        setContentView(this.layoutId);
         arFragment = (ArFragment) getSupportFragmentManager().findFragmentById(this.fragmentId);
 
         // Create an ExternalTexture for displaying the contents of the video.
